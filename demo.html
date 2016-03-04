@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="http://www.jplayer.org/latest/dist/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
+<script src="http://www.jplayer.org/latest/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/add-on/jplayer.playlist.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var tkblogPlaylist = new jPlayerPlaylist({
+		jPlayer: "#tkblog_j_player",
+		cssSelectorAncestor: "#tkblog_j_html_container"
+	}, 
+	
+	[
+		{
+			title:"鸡蛋男人",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+		},
+		{
+			title:"躲藏",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+		},
+		{
+			title:"Cyber Sonnet",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+		},
+		{
+			title:"Tempered Song",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+		},
+		{
+			title:"Lentement",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
+		}
+	],
+	
+	{
+		playlistOptions: {
+			autoPlay: false,
+			enableRemoveControls: true 
+		},
+		swfPath: "../../dist/jplayer",
+		supplied: "mp3",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: false,
+		audioFullScreen: false 
+	});
+
+	$("#playlist-play").click(function() {
+		tkblogPlaylist.play();
+	});
+	$("#playlist-option-dis-rm").click(function() {
+		tkblogPlaylist.option("enableRemoveControls", false);
+	});
+
+	tkblogPlaylist.add({
+		title:"Your Face",
+		mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+	});
+});
+</script>
+</head>
+<body>
+<a href="#" id="playlist-play">Play</a> and <a href="#" id="playlist-option-dis-rm">disable remove</a>
+
+<div id="tkblog_j_player" class="jp-jplayer"></div>
+<div id="tkblog_j_html_container" style="width:250px;" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-playlist">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls" style="padding-left:5px;">
+				<button class="jp-play" role="button" tabindex="0">play</button>
+			</div>
+			<div class="jp-progress" style="left:50px; width:110px">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder" style="left:50px; width:125px">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+			</div>
+			<div class="jp-volume-controls" style="left:175px;">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-toggles" style="left:185px;">
+				<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				<button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
+			</div>
+		</div>
+		<div class="jp-playlist">
+			<ul>
+				<li>&nbsp;</li>
+			</ul>
+		</div>
+		<div class="jp-no-solution">
+			<span>JPlayer Update Required</span>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>
